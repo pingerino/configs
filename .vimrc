@@ -16,6 +16,10 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
+Plugin 'godlygeek/tabular'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-surround'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -44,6 +48,9 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+let g:gitgutter_max_signs=100000
+
 set shortmess+=c
 set background=dark
 set tabstop=4
@@ -54,6 +61,16 @@ set lazyredraw
 set autoindent smartindent
 set smarttab
 set backspace=indent,eol,start
+
+""" Searching and stuff
+set ignorecase " Ignore case while searching
+set smartcase " But if I have an uppercase letter in the search, make it case sensitive
+set incsearch " Do a proper incremental search
+set hlsearch " Highlight search results
+
+""" Abbreviations and common fixes
+iabbrev teh the
+iabbrev functino function
 
 syntax on
 nore ; :
@@ -70,6 +87,7 @@ set nobackup
 " don't replace tabs with spaces in make files
 autocmd FileType make setlocal noexpandtab
 autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " show line numbers
 set number
