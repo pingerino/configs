@@ -91,3 +91,4 @@ autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " show line numbers
 set number
+set textwidth=100
