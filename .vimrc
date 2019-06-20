@@ -20,6 +20,8 @@ Plugin 'bling/vim-airline'
 Plugin 'godlygeek/tabular'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
+Plugin 'neovimhaskell/haskell-vim'
+Plugin 'rust-lang/rust.vim'
 
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
@@ -84,11 +86,17 @@ set nobackup
 :command W w
 :command Q q
 
-" don't replace tabs with spaces in make files
+" don't replace tabs with spaces in make files or patch files
 autocmd FileType make setlocal noexpandtab
+autocmd FileType *.patch setlocal noexpandtab
 autocmd BufWritePre * :%s/\s\+$//e
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 " show line numbers
 set number
-set textwidth=100
+set ruler
+
+set t_BE=
+
+nnoremap <silent> <F5> zfa}<CR>
+nnoremap <silent> <F6> zo<CR>
